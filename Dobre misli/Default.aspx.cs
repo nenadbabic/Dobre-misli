@@ -11,12 +11,34 @@ namespace Dobre_misli
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Application["Misli"] == null)
+            {
+                Application["Misli"] = new List<string>();
+            }
         }
 
         protected void dodajMisel_Click(object sender, EventArgs e)
-        {
-                    
+        {   
+            String dobraMisel = misel.Text;
+            /**
+            misli.Controls.Add(new Literal() { Text = dobraMisel });
+            **/
+
+           
+            var misliTabela = (List<string>)Application["Misli"];
+            bool alreadyExists = misliTabela.Contains(dobraMisel);
+            if (!alreadyExists)
+            {
+                misliTabela.Insert(0, dobraMisel);
+            }
+            
+
+            foreach (var pMisel in misliTabela)
+            {
+                var label = new Label();
+                label.Text = pMisel + new HtmlString("<br />");
+                FindControl("misli").Controls.Add(label);
+            }
         }
     }
     

@@ -6,6 +6,11 @@
 <head runat="server">
     <title></title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <style type="text/css">
+        .auto-style1 {
+            height: 20px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -32,7 +37,7 @@
 
         <table style="margin: 20px;">
             <tr>
-                <td>
+                <td class="auto-style1">
                     Misli naših uporabnikov:
                 </td>
             </tr>
